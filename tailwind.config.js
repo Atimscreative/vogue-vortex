@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -74,6 +76,11 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+
+      backgroundImage: {
+        heroDark: url("./src/assets/hero-dark.png"),
+        heroLight: url("./src/assets/hero-light.png"),
       },
     },
   },

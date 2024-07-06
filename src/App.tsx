@@ -3,6 +3,7 @@ import { ThemeProvider } from "./context/theme-provider";
 import AppLayout from "./layout/AppLayout";
 import Home from "./page/Home";
 import NoPage from "./page/NoPage";
+import "./App.css";
 
 function App() {
   return (

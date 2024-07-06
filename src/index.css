@@ -73,6 +73,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-clip;
+  }
+}
+
+@layer utilities {
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+  .vertical-lr {
+    writing-mode: tb-rl;
   }
 }
