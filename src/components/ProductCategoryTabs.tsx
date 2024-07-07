@@ -17,7 +17,7 @@ const ProductCategoryTabs = () => {
                 onClick={() => setActiveTab(index)}
                 key={index}
                 className={cn(
-                  "inline-block cursor-pointer whitespace-nowrap rounded-full bg-transparent px-5 py-2 capitalize duration-300",
+                  "font-circular inline-block cursor-pointer whitespace-nowrap rounded-full bg-transparent px-5 py-2 capitalize duration-300",
                   activeTab === index && "bg-main-100 text-white",
                 )}
               >

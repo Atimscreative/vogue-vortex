@@ -20,7 +20,7 @@ const SectionHeading: React.FC<Props> = ({
       <div className={cn("relative", className)}>
         <h2
           className={cn(
-            "text-main-100 relative z-[1] pl-4 font-tenorsan text-2xl uppercase tracking-[4px] dark:text-white",
+            "relative z-[1] pl-4 font-tenorsan text-2xl uppercase tracking-[4px] text-main-100 dark:text-white",
             titleClassName,
           )}
         >
@@ -28,7 +28,7 @@ const SectionHeading: React.FC<Props> = ({
         </h2>
         <hr
           className={cn(
-            "bg-main-300 absolute bottom-1 left-0 inline-block h-3 w-[75%] border-0",
+            "absolute bottom-1 left-0 inline-block h-3 w-[75%] border-0 bg-main-300",
             shapeClassName,
           )}
         />
@@ -36,7 +36,7 @@ const SectionHeading: React.FC<Props> = ({
 
       {/* BORDER DIVIDER */}
       {showDivider && (
-        <div className="relative mx-auto my-5 w-full border-t-2 border-zinc-100">
+        <div className="relative mx-auto my-8 mb-10 w-full border-t-2 border-zinc-100">
           <span className="absolute -top-1 inline-block h-1.5 w-1.5 rotate-45 bg-zinc-100"></span>
           <span className="absolute -top-1 right-0 inline-block h-1.5 w-1.5 rotate-45 bg-zinc-100"></span>
         </div>

@@ -12,17 +12,19 @@ const hashtags = [
 
 const Trending = () => {
   return (
-    <div>
+    <div className="py-10">
       <div className="wrapper">
-        <h2 className="font-tenorsan text-lg tracking-wider">@Trending</h2>
+        <h2 className="mb-5 text-center font-tenorsan text-lg uppercase tracking-widest text-main-100">
+          @Trending
+        </h2>
 
-        <div>
+        <div className="flex flex-wrap items-center gap-3">
           <EachElement
             of={hashtags}
             render={(hash: string, index: number) => (
               <span
                 key={index}
-                className="text-main-500 inline-block rounded-full bg-[#F9F9F9] px-2.5 py-2 font-tenorsan"
+                className="inline-block cursor-pointer rounded-full bg-[#F9F9F9] px-4 py-2 font-tenorsan text-sm text-main-500"
               >
                 #{hash}
               </span>

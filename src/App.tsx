@@ -4,6 +4,8 @@ import AppLayout from "./layout/AppLayout";
 import Home from "./page/Home";
 import NoPage from "./page/NoPage";
 import "./App.css";
+import ProductPage from "./page/ProductPage";
+import ProductDetails from "./page/ProductDetails";
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
           <Routes>
             <Route path="/" element={<AppLayout />}>
               <Route index element={<Home />} />
+              <Route path="/products" element={<ProductPage />} />
+              <Route path="/products/:id" element={<ProductDetails />} />
+
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>

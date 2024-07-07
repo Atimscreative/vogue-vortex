@@ -22,6 +22,7 @@ module.exports = {
       fontFamily: {
         bodoni: `"Bodoni Moda", serif`,
         tenorsan: `"Tenor Sans", sans-serif;`,
+        circular: `"DM Sans", sans-serif`,
       },
       colors: {
         main: {

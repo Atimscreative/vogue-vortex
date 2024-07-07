@@ -13,7 +13,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <header className="absolute left-0 top-0 w-full py-5">
+      <nav className="absolute left-0 top-0 w-full py-5 lg:hidden">
         <div className="wrapper flex items-center justify-between">
           <span
             onClick={() => setShowModal(true)}
@@ -41,7 +41,7 @@ const MobileNav = () => {
             </span>
           </div>
         </div>
-      </header>
+      </nav>
 
       <MobileNavSidebar showModal={showModal} setShowModal={setShowModal} />
     </>
