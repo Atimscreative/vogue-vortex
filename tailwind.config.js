@@ -24,6 +24,14 @@ module.exports = {
         tenorsan: `"Tenor Sans", sans-serif;`,
       },
       colors: {
+        main: {
+          100: "#A17E6D",
+          200: "#523F38",
+          300: "#FF5E00",
+          400: "#1A1A1A",
+          500: "#333333",
+        },
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
