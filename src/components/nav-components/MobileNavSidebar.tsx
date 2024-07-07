@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import EachElement from "@/utils/EachElement";
 import { useState } from "react";
-import { BsX } from "react-icons/bs";
 import {
   Accordion,
   AccordionContent,
@@ -15,7 +14,8 @@ import {
   CallIcon,
   Location01Icon,
   Sun02Icon,
-  Moon02Icon,MultiplicationSignIcon
+  Moon02Icon,
+  MultiplicationSignIcon,
 } from "hugeicons-react";
 import {
   BsFacebook,
