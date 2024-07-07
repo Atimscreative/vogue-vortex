@@ -12,7 +12,44 @@ const slug = (value: string) => slugify(value, { lower: true });
 const ProductCard: React.FC<CardProps> = ({ data }) => {
   return (
     <div className="">
-      <div className="relative w-min">
+      <div className="relative w-full">
+        <img
+          src={data?.images[0]}
+          height="100%"
+          width="100%"
+          className="h-[200px] w-full rounded-2xl object-cover object-[top_center]"
+        />
+
+        <span className="inline- absolute bottom-0 left-0 rounded-lg border-2 border-main-100 bg-white px-2.5 py-1 font-circular text-main-100 ring-8 ring-white">
+          ${data?.price}
+        </span>
+
+        <Link
+          to={`/products/${slug(data?.name)}`}
+          className="absolute right-0 top-0 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-[12px] rounded-bl-[15px] border-2 border-main-100 bg-transparent bg-white text-main-100 ring-8 ring-white hover:bg-main-100 hover:text-white"
+        >
+          <GoArrowUpRight size={24} />
+        </Link>
+      </div>
+
+      <div className="relative mt-2">
+        <h3 className="font-circular text-main-100">{data?.name}</h3>
+        <div className="flex items-center gap-2">
+          <span className="inline-block h-5 w-5 rounded-full border-2 border-main-100"></span>
+          <span className="font-circular text-main-100">{data?.brand}</span>
+          <span>
+            <RiVerifiedBadgeFill color="#00D566" />
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductCard;
+
+{
+  /* <div className="relative w-min">
         <svg
           width="160"
           height="170"
@@ -45,19 +82,5 @@ const ProductCard: React.FC<CardProps> = ({ data }) => {
         >
           <GoArrowUpRight size={24} />
         </Link>
-      </div>
-      <div className="relative mt-2">
-        <h3 className="font-circular text-main-100">{data?.name}</h3>
-        <div className="flex items-center gap-2">
-          <span className="inline-block h-5 w-5 rounded-full border-2 border-main-100"></span>
-          <span className="font-circular text-main-100">{data?.brand}</span>
-          <span>
-            <RiVerifiedBadgeFill color="#00D566" />
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ProductCard;
+      </div> */
+}

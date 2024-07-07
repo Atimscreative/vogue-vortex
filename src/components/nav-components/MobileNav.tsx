@@ -34,7 +34,7 @@ const MobileNav = () => {
 
           <div className="inline-flex gap-2">
             <span className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-white">
-              <Search size={24} className="text-white" />
+              <Search size={24} className="text-main-100 dark:text-white" />
             </span>
             <span className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white dark:border-2 dark:border-white dark:bg-transparent">
               <ShoppingBag className="text-main-100 dark:text-white" />

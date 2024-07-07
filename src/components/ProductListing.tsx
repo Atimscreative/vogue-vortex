@@ -16,7 +16,7 @@ const ProductListing = () => {
         <div className="wrapper">
           <ProductCategoryTabs />
 
-          <div className="mt-6 grid grid-cols-2 gap-2">
+          <div className="mt-6 grid grid-cols-2 gap-8">
             <EachElement
               of={products}
               render={(item: any, index: number) => (

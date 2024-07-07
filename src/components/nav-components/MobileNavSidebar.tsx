@@ -33,12 +33,28 @@ type Props = {
 
 const tabs = ["women", "men", "native", "kids"];
 
+const pos = (val: string) => {
+  switch (val) {
+    case "women":
+      return 0 * 25;
+    case "men":
+      return 1 * 25;
+    case "native":
+      return 2 * 25;
+    case "kids":
+      return 3 * 25;
+
+    default:
+      break;
+  }
+};
+
 const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [choosenTab, setChoosenTab] = useState(tabs[0]);
   const { theme, setTheme } = useTheme();
 
-  console.log(activeTab);
+  console.log(activeTab, pos(activeTab), activeTab === choosenTab);
 
   return (
     <aside
@@ -48,13 +64,11 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
       )}
     >
       <span
-        className="text-main-500 inline-block cursor-pointer"
+        className="inline-block cursor-pointer text-main-500"
         onClick={() => setShowModal(false)}
       >
         <MultiplicationSignIcon size={32} />
       </span>
-
-      <div></div>
 
       <Tabs defaultValue="women" className="mt-6 w-full">
         <TabsList className="relative grid h-10 w-full grid-cols-4 justify-between gap-y-3 rounded-none border-b bg-transparent pb-2">
@@ -70,7 +84,7 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
                   setChoosenTab(tab);
                 }}
                 className={cn(
-                  "text-main-500 font-tenorsan text-base uppercase tracking-wide text-opacity-50 shadow-none ring-0 duration-300",
+                  "font-tenorsan text-base uppercase tracking-wide text-main-500 text-opacity-50 shadow-none ring-0 duration-300",
                   activeTab === tab && "text-opacity-100",
                 )}
               >
@@ -79,13 +93,14 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
             )}
           />
           <span
+            style={{
+              left: `${activeTab === choosenTab && `left-[${pos(activeTab)}%]`}`,
+            }}
             className={cn(
-              "border-main-100 absolute bottom-0 left-0 inline-block w-[100px] border-t-2 duration-300",
-              activeTab === choosenTab &&
-                `left-[${tabs.indexOf(choosenTab) * 25}%]`,
+              "absolute bottom-0 inline-block w-[100px] border-t-2 border-main-100 duration-300",
             )}
           >
-            <span className="bg-main-100 absolute -top-1.5 left-1/2 inline-block h-2 w-2 -translate-x-1/2 rotate-45"></span>
+            <span className="absolute -top-1.5 left-1/2 inline-block h-2 w-2 -translate-x-1/2 rotate-45 bg-main-100"></span>
           </span>
         </TabsList>
         {tabs?.map((tab: string, index: number) => (
@@ -98,14 +113,18 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
                 className="w-full divide-y-0"
               >
                 <AccordionItem value="item-1" className="border-0">
-                  <AccordionTrigger className="text-main-400 font-tenorsan text-base capitalize hover:no-underline">
+                  <AccordionTrigger className="font-tenorsan text-base capitalize text-main-400 hover:no-underline">
                     {fas?.category}
                   </AccordionTrigger>
                   <EachElement
                     of={fas?.subcategories}
                     render={(sub: any, subIndex: number) => (
                       <AccordionContent key={subIndex}>
-                        <Link to="/" className="pl-6 font-tenorsan text-base">
+                        <Link
+                          to="/products"
+                          onClick={() => setShowModal(false)}
+                          className="pl-6 font-tenorsan text-base"
+                        >
                           {sub}
                         </Link>
                       </AccordionContent>
@@ -118,13 +137,13 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
         ))}
       </Tabs>
       <div className="flex flex-col gap-y-3">
-        <div className="text-main-500 inline-flex items-center gap-2">
+        <div className="inline-flex items-center gap-2 text-main-500">
           <span>
             <CallIcon className="-rotate-90" />
           </span>
           <span className="font-tenorsan">(903) 951-8033</span>
         </div>
-        <div className="text-main-500 inline-flex items-center gap-2">
+        <div className="inline-flex items-center gap-2 text-main-500">
           <span>
             <Location01Icon />
           </span>
@@ -137,19 +156,19 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
       </div>
 
       <div className="mt-6 flex justify-center gap-3">
-        <span className="border-main-100 text-main-100 inline-flex h-10 w-10 items-center justify-center rounded-full border-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-100 text-main-100">
           <BsInstagram size={20} />
         </span>{" "}
-        <span className="border-main-100 text-main-100 inline-flex h-10 w-10 items-center justify-center rounded-full border-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-100 text-main-100">
           <BsFacebook size={20} />
         </span>
-        <span className="border-main-100 text-main-100 inline-flex h-10 w-10 items-center justify-center rounded-full border-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-100 text-main-100">
           <BsTwitterX size={20} />
         </span>
-        <span className="border-main-100 text-main-100 inline-flex h-10 w-10 items-center justify-center rounded-full border-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-100 text-main-100">
           <BsPinterest size={20} />
         </span>
-        <span className="border-main-100 text-main-100 inline-flex h-10 w-10 items-center justify-center rounded-full border-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-main-100 text-main-100">
           <BsTiktok size={20} />
         </span>
       </div>
@@ -157,13 +176,13 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
       <div className="absolute bottom-5 right-5 inline-flex h-auto gap-2 rounded-full bg-[#DBCEC7] p-1">
         <span
           onClick={() => setTheme("light")}
-          className="dark:text-main-400 relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2"
+          className="relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2 dark:text-main-400"
         >
           Light <Sun02Icon size={24} />
         </span>
         <span
           onClick={() => setTheme("dark")}
-          className="dark:text-main-400 relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2"
+          className="relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2 dark:text-main-400"
         >
           Dark <Moon02Icon size={24} />
         </span>
