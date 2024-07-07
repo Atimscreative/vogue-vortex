@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 const HeroBanner = () => {
   return (
-    <section className="h-screen bg-[url(./src/assets/hero-light.png)] bg-cover bg-center dark:bg-zinc-900 dark:bg-[url(./src/assets/hero-dark.png)]">
+    <section className="h-screen bg-[url(./assets/hero-light.png)] bg-cover bg-center dark:bg-zinc-900 dark:bg-[url(./assets/hero-dark.png)]">
       <div className="wrapper flex h-full flex-col items-center justify-center">
         <h1 className="text-main-200 relative z-20 -translate-y-6 bg-clip-text font-bodoni text-5xl font-bold uppercase italic leading-[130%] dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 dark:text-transparent">
           vogue

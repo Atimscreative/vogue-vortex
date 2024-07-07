@@ -14,7 +14,7 @@ const NewArrivalSlider = () => {
           <div></div>
         </div>
 
-        <div className="relative z-0 mt-3 bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(./src/assets/new-arrivals.jpg)] bg-cover bg-center py-20">
+        <div className="relative z-0 mt-3 bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(./assets/new-arrivals.jpg)] bg-cover bg-center py-20">
           <div className="wrapper">
             <h3 className="translate-x-[20%] text-[32px] text-white">
               New Arrival
