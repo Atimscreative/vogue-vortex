@@ -1,46 +1,44 @@
 import slugify from "slugify";
-import { GoArrowUpRight } from "react-icons/go";
+// import { GoArrowUpRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { BsHeart } from "react-icons/bs";
 
 type CardProps = {
   data: any;
 };
 
-const slug = (value: string) => slugify(value, { lower: true });
+// const slug = (value: string) => slugify(value, { lower: true });
 
 const ProductCard: React.FC<CardProps> = ({ data }) => {
   return (
-    <div className="">
-      <div className="relative w-full">
+    <div className="w-full">
+      <figure className="relative mb-2 h-[200px] w-full overflow-hidden rounded-2xl shadow">
+        <span className="absolute right-3 top-3 inline-block text-main-100 hover:fill-main-100">
+          <BsHeart size={24} />
+        </span>
         <img
           src={data?.images[0]}
-          height="100%"
-          width="100%"
-          className="h-[200px] w-full rounded-2xl object-cover object-[top_center]"
+          alt={data?.name}
+          width={150}
+          height={160}
+          className="h-full w-full object-cover object-center"
         />
-
-        <span className="inline- absolute bottom-0 left-0 rounded-lg border-2 border-main-100 bg-white px-2.5 py-1 font-circular text-main-100 ring-8 ring-white">
+        <span className="inline- absolute bottom-2 left-2 rounded-xl bg-white px-2.5 py-1 font-circular text-lg text-main-100 shadow">
           ${data?.price}
         </span>
-
-        <Link
-          to={`/products/${slug(data?.name)}`}
-          className="absolute right-0 top-0 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-[12px] rounded-bl-[15px] border-2 border-main-100 bg-transparent bg-white text-main-100 ring-8 ring-white hover:bg-main-100 hover:text-white"
-        >
-          <GoArrowUpRight size={24} />
+      </figure>
+      <h3 className="font-circular text-main-100">
+        <Link to={`/products/${slugify(data?.name)}`}>
+          21WN reversible angora
         </Link>
-      </div>
-
-      <div className="relative mt-2">
-        <h3 className="font-circular text-main-100">{data?.name}</h3>
-        <div className="flex items-center gap-2">
-          <span className="inline-block h-5 w-5 rounded-full border-2 border-main-100"></span>
-          <span className="font-circular text-main-100">{data?.brand}</span>
-          <span>
-            <RiVerifiedBadgeFill color="#00D566" />
-          </span>
-        </div>
+      </h3>
+      <div className="flex items-center gap-2">
+        <span className="inline-block h-5 w-5 rounded-full border-2 border-main-100"></span>
+        <span className="font-circular text-main-100">{data?.brand}</span>
+        <span>
+          <RiVerifiedBadgeFill color="#00D566" />
+        </span>
       </div>
     </div>
   );

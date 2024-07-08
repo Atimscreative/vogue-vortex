@@ -1,6 +1,7 @@
+import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { productsLists } from "@/utils/data";
+import { fashion, productsLists } from "@/utils/data";
 import EachElement from "@/utils/EachElement";
 import { Check } from "iconsax-react";
 import { useState } from "react";
@@ -14,18 +15,60 @@ import {
 import { CgClose, CgDisplayGrid } from "react-icons/cg";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { LuSettings2 } from "react-icons/lu";
-import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import slugify from "slugify";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
+
+const category = [
+  "All",
+  "Outer",
+  "Dress",
+  "Blouse",
+  "T-Shirt",
+  "Nightwears",
+  "Skirt",
+  "Pants",
+  "Denim",
+];
 
 const ProductPage = () => {
   const [view, setView] = useState<string>("grid");
   return (
     <>
       <div className="mt-20" />
-      <section>
+
+      <section className="py-10 pt-5">
+        <div className="hidden items-center justify-center gap-4 lg:flex">
+          <EachElement
+            of={fashion["women"]}
+            render={(fas: any, index: any) => (
+              <DropdownMenu key={index}>
+                <DropdownMenuTrigger className="inline-flex items-center gap-2 font-circular hover:text-main-100 focus-visible:border-0 focus-visible:outline-0">
+                  {fas?.category}
+                  <span>
+                    <ChevronDown />
+                  </span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <EachElement
+                    of={fas?.subcategories}
+                    render={(sub: any, subIndex: number) => (
+                      <DropdownMenuItem key={subIndex}>{sub}</DropdownMenuItem>
+                    )}
+                  />
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+          />
+        </div>
         <div className="wrapper">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between lg:hidden">
             <h2 className="font-tenorsan uppercase text-main-500">Apparel</h2>
             <div className="flex items-center gap-3">
               <Button
@@ -54,148 +97,146 @@ const ProductPage = () => {
             </div>
           </div>
 
-          <div className="my-6 flex items-center gap-3">
-            <div className="inline-flex items-center gap-2 rounded-full border border-neutral-500 px-4 py-1.5">
-              <span className="font-circular text-sm">Women</span>
-              <span className="cursor-pointer">
-                <CgClose size={20} />
-              </span>
-            </div>
-            <div className="inline-flex items-center gap-3 rounded-full border border-neutral-500 px-4 py-1.5">
-              <span className="font-circular text-sm">All apparel</span>
-              <span className="cursor-pointer">
-                <CgClose size={20} />
-              </span>
-            </div>
-            <div className="inline-flex items-center gap-3 rounded-full border border-neutral-500 px-4 py-1.5">
-              <span className="font-circular text-sm">Blouse</span>
-              <span className="cursor-pointer">
-                <CgClose size={20} />
-              </span>
+          <div className="hide-scrollbar w-full overflow-x-auto lg:hidden">
+            <div className="my-6 flex w-full items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-neutral-500 px-4 py-1.5">
+                <span className="font-circular text-sm">Women</span>
+                <span className="cursor-pointer">
+                  <CgClose size={20} />
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-3 rounded-full border border-neutral-500 px-4 py-1.5">
+                <span className="whitespace-nowrap font-circular text-sm">
+                  All apparel
+                </span>
+                <span className="cursor-pointer">
+                  <CgClose size={20} />
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-3 rounded-full border border-neutral-500 px-4 py-1.5">
+                <span className="font-circular text-sm">Blouse</span>
+                <span className="cursor-pointer">
+                  <CgClose size={20} />
+                </span>
+              </div>
             </div>
           </div>
 
-          {view === "grid" && (
-            <div className="grid grid-cols-2 gap-4">
-              <EachElement
-                of={productsLists}
-                render={(data: any, index: number) => (
-                  <div key={index} className="w-full">
-                    <figure className="relative mb-2 h-[200px] w-full overflow-hidden rounded-2xl shadow">
-                      <span className="absolute right-3 top-3 inline-block text-main-100 hover:fill-main-100">
-                        <BsHeart size={24} />
-                      </span>
-                      <img
-                        src={data?.images[0]}
-                        alt={data?.name}
-                        width={150}
-                        height={160}
-                        className="h-full w-full object-cover object-center"
-                      />
-                      <span className="inline- absolute bottom-2 left-2 rounded-xl bg-white px-2.5 py-1 font-circular text-lg text-main-100 shadow">
-                        ${data?.price}
-                      </span>
-                    </figure>
-                    <h3 className="font-circular text-main-100">
-                      <Link to={`/products/${slugify(data?.name)}`}>
-                        21WN reversible angora
+          <div className="mt-5 grid lg:grid-cols-[200px_1fr]">
+            <div className="hidden lg:block">
+              <h3 className="mb-4 font-tenorsan text-2xl text-main-400">
+                Category
+              </h3>
+              <ul className="space-y-4">
+                <EachElement
+                  of={category}
+                  render={(cat: string, index: number) => (
+                    <li key={index}>
+                      <Link
+                        to="/"
+                        className="font-tenorsan capitalize text-main-100"
+                      >
+                        {cat}
                       </Link>
-                    </h3>
-                    <div className="flex items-center gap-2">
-                      <span className="inline-block h-5 w-5 rounded-full border-2 border-main-100"></span>
-                      <span className="font-circular text-main-100">
-                        {data?.brand}
-                      </span>
-                      <span>
-                        <RiVerifiedBadgeFill color="#00D566" />
-                      </span>
-                    </div>
-                  </div>
-                )}
-              />
+                    </li>
+                  )}
+                />
+              </ul>
             </div>
-          )}
-          {view === "list" && (
-            <div className="grid grid-cols-1 gap-4">
-              <EachElement
-                of={productsLists}
-                render={(data: any, index: number) => (
-                  <div
-                    key={index}
-                    className="grid w-full grid-cols-[150px_1fr] gap-2"
-                  >
-                    <figure className="relative mb-2 h-[150px] w-[150px] overflow-hidden rounded-2xl shadow">
-                      <img
-                        src={data?.images[0]}
-                        alt={data?.name}
-                        width={150}
-                        height={160}
-                        className="h-full w-full object-cover object-center"
-                      />
-                      <span className="inline- absolute bottom-2 left-2 rounded-xl bg-white px-2.5 py-1 font-circular text-lg text-main-100 shadow">
-                        ${data?.price}
-                      </span>
-                    </figure>
+            <div className="">
+              {view === "grid" && (
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4">
+                  <EachElement
+                    of={productsLists}
+                    render={(data: any, index: number) => (
+                      <ProductCard data={data} key={index} />
+                    )}
+                  />
+                </div>
+              )}
+              {view === "list" && (
+                <div className="grid grid-cols-1 gap-4 sm:max-w-[400px]">
+                  <EachElement
+                    of={productsLists}
+                    render={(data: any, index: number) => (
+                      <div
+                        key={index}
+                        className="grid w-full grid-cols-[150px_1fr] gap-2"
+                      >
+                        <figure className="relative mb-2 h-[150px] w-[150px] overflow-hidden rounded-2xl shadow">
+                          <img
+                            src={data?.images[0]}
+                            alt={data?.name}
+                            width={150}
+                            height={160}
+                            className="h-full w-full object-cover object-center"
+                          />
+                          <span className="inline- absolute bottom-2 left-2 rounded-xl bg-white px-2.5 py-1 font-circular text-lg text-main-100 shadow">
+                            ${data?.price}
+                          </span>
+                        </figure>
 
-                    <div className="flex flex-col gap-2 pt-3">
-                      <h3 className="font-circular text-main-100">
-                        <span className="font-tenorsan uppercase text-black">
-                          {data?.brand}
-                        </span>{" "}
-                        <br />
-                        <Link
-                          to={`/products/${slugify(data?.name)}`}
-                          className="text-main-500"
-                        >
-                          {data?.name}
-                        </Link>
-                      </h3>
-                      <div className="inline-flex items-center gap-2">
-                        <span className="inline-block text-main-100">
-                          <BsStarFill size={20} />
-                        </span>
-                        <span className="font-tenorsan">4.8</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="inline-flex items-center gap-3">
-                          <h4 className="font-tenorsan">Size</h4>
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-neutral-500 font-tenorsan uppercase text-main-400">
-                              s
-                            </span>
-                            <span
-                              key={index}
-                              className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-neutral-500 font-tenorsan uppercase text-main-400"
+                        <div className="flex flex-col gap-2 pt-3">
+                          <h3 className="font-circular text-main-100">
+                            <span className="font-tenorsan uppercase text-black">
+                              {data?.brand}
+                            </span>{" "}
+                            <br />
+                            <Link
+                              to={`/products/${slugify(data?.name)}`}
+                              className="text-main-500"
                             >
-                              m
+                              {data?.name}
+                            </Link>
+                          </h3>
+                          <div className="inline-flex items-center gap-2">
+                            <span className="inline-block text-main-100">
+                              <BsStarFill size={20} />
                             </span>
-                            <span
-                              key={index}
-                              className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-neutral-500 font-tenorsan uppercase text-main-400"
-                            >
-                              l
-                            </span>
+                            <span className="font-tenorsan">4.8</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="inline-flex items-center gap-3">
+                              <h4 className="font-tenorsan">Size</h4>
+                              <div className="flex items-center gap-2">
+                                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-neutral-500 font-tenorsan uppercase text-main-400">
+                                  s
+                                </span>
+                                <span
+                                  key={index}
+                                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-neutral-500 font-tenorsan uppercase text-main-400"
+                                >
+                                  m
+                                </span>
+                                <span
+                                  key={index}
+                                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-neutral-500 font-tenorsan uppercase text-main-400"
+                                >
+                                  l
+                                </span>
+                              </div>
+                            </div>
+                            <div className="inline-flex gap-2">
+                              <span className="text-neutral-600">
+                                <Check
+                                  size={24}
+                                  variant="TwoTone"
+                                  className="-rotate-180"
+                                />
+                              </span>
+                              <span className="inline-block text-main-100">
+                                <BsHeart size={24} />
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div className="inline-flex gap-2">
-                          <span className="text-neutral-600">
-                            <Check
-                              size={24}
-                              variant="TwoTone"
-                              className="-rotate-180"
-                            />
-                          </span>
-                          <span className="inline-block text-main-100">
-                            <BsHeart size={24} />
-                          </span>
-                        </div>
                       </div>
-                    </div>
-                  </div>
-                )}
-              />
+                    )}
+                  />
+                </div>
+              )}
             </div>
-          )}
+          </div>
 
           <div className="my-10 flex items-center justify-center gap-1">
             <span className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-500 font-circular font-medium text-main-100">

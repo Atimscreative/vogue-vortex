@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/theme-provider";
 import AppLayout from "./layout/AppLayout";
-import Home from "./page/Home";
+// import Home from "./page/Home";
 import NoPage from "./page/NoPage";
-import "./App.css";
 import ProductPage from "./page/ProductPage";
 import ProductDetails from "./page/ProductDetails";
+import "./App.css";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<AppLayout />}>
-              <Route index element={<Home />} />
+              <Route index element={<ProductPage />} />
               <Route path="/products" element={<ProductPage />} />
               <Route path="/products/:id" element={<ProductDetails />} />
 
