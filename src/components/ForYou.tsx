@@ -52,7 +52,7 @@ const ForYou = () => {
           titleClassName="text-2xl"
         />
 
-        <div className="hide-scroll-bar w-full overflow-x-auto">
+        <div className="hide-scrollbar w-full overflow-x-auto">
           <div className="mt-12 flex w-min space-x-5">
             <EachElement
               of={foryoulist}

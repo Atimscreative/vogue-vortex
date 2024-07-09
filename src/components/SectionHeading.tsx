@@ -20,7 +20,7 @@ const SectionHeading: React.FC<Props> = ({
       <div className={cn("relative", className)}>
         <h2
           className={cn(
-            "relative z-[1] pl-4 font-tenorsan text-2xl uppercase tracking-[4px] text-main-100 dark:text-white",
+            "relative z-[1] pl-4 font-tenorsan text-2xl uppercase tracking-[4px] text-main-100",
             titleClassName,
           )}
         >

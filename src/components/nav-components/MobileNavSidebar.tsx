@@ -24,7 +24,6 @@ import {
   BsTiktok,
   BsTwitterX,
 } from "react-icons/bs";
-import { useTheme } from "@/context/theme-provider";
 
 type Props = {
   showModal: boolean;
@@ -52,14 +51,13 @@ const pos = (val: string) => {
 const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [choosenTab, setChoosenTab] = useState(tabs[0]);
-  const { theme, setTheme } = useTheme();
 
   console.log(activeTab, pos(activeTab), activeTab === choosenTab);
 
   return (
     <aside
       className={cn(
-        "fixed -left-full top-0 z-50 h-full w-full bg-white p-4 duration-500 dark:bg-zinc-900",
+        "fixed -left-full top-0 z-50 h-full w-full bg-white p-4 duration-500",
         showModal && "left-0",
       )}
     >
@@ -174,23 +172,17 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
       </div>
 
       <div className="absolute bottom-5 right-5 inline-flex h-auto gap-2 rounded-full bg-[#DBCEC7] p-1">
-        <span
-          onClick={() => setTheme("light")}
-          className="relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2 dark:text-main-400"
-        >
+        <span className="relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2">
           Light <Sun02Icon size={24} />
         </span>
-        <span
-          onClick={() => setTheme("dark")}
-          className="relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2 dark:text-main-400"
-        >
+        <span className="relative z-10 inline-flex cursor-pointer items-center gap-2 rounded-full px-3 py-2">
           Dark <Moon02Icon size={24} />
         </span>
 
         <span
           className={cn(
             "pointer-events-none absolute top-1/2 inline-block h-10 w-[99px] -translate-y-1/2 cursor-pointer rounded-full bg-white duration-500",
-            theme === "dark" ? "left-[92px]" : "left-1",
+            "left-1",
           )}
         ></span>
       </div>

@@ -23,7 +23,25 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import ForYou from "@/components/ForYou";
+import win1 from "@/assets/win-1.png";
+import win2 from "@/assets/win-2.png";
+import win3 from "@/assets/win-3.png";
+import win4 from "@/assets/win-4.png";
+import win5 from "@/assets/win-5.png";
+import Img1 from "@/assets/Shipping-4--Streamline-Milano.svg";
+import Img3 from "@/assets/Sharing-Ideas--Streamline-Milano.svg";
+import Img2 from "@/assets/Design-Thinking-1--Streamline-Milano.svg";
+import Img4 from "@/assets/International-Shipping--Streamline-Milano.svg";
+import logo from "@/assets/logo-dark.svg";
+
+const post = [
+  { img: Img1, content: "Fast shipping. Free on orders over $25." },
+  { img: Img2, content: "Sustainable process from start to finish." },
+  { img: Img3, content: "Unique designs and high-quality materials." },
+  { img: Img4, content: "Fast shipping. Free on orders over $25." },
+];
 
 const category = [
   "All",
@@ -143,7 +161,8 @@ const ProductPage = () => {
                 />
               </ul>
             </div>
-            <div className="">
+            <div className="w-full">
+              {/* PRODUCT GRID VIEW */}
               {view === "grid" && (
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4">
                   <EachElement
@@ -154,6 +173,8 @@ const ProductPage = () => {
                   />
                 </div>
               )}
+
+              {/* PRODUCT LIST VIEW */}
               {view === "list" && (
                 <div className="grid grid-cols-1 gap-4 sm:max-w-[400px]">
                   <EachElement
@@ -236,9 +257,138 @@ const ProductPage = () => {
                 </div>
               )}
             </div>
+
+            {/* SHOW ALL PRODUCTS */}
+            <div className="col-span-2 mt-6 hidden w-full justify-end lg:flex">
+              <Link
+                to="/products"
+                className="inline-flex items-center font-circular text-xl font-semibold"
+              >
+                Show all{" "}
+                <span>
+                  <ArrowRight />
+                </span>
+              </Link>
+            </div>
           </div>
 
-          <div className="my-10 flex items-center justify-center gap-1">
+          {/* FOR YOU */}
+          <div className="hidden lg:block">
+            <ForYou />
+          </div>
+
+          {/*  */}
+
+          <div className="hidden grid-cols-[400px_1fr] lg:grid">
+            <div className="flex flex-col items-center justify-center">
+              <h3 className="text-center font-tenorsan text-4xl uppercase tracking-widest text-main-100">
+                winter
+              </h3>
+              <p className="mt-3 text-center font-tenorsan capitalize text-main-100">
+                must have fits for this season
+              </p>
+              <Button className="mt-6 inline-block h-auto rounded-md bg-main-100 px-5 py-3 font-circular font-light text-white hover:bg-main-200">
+                Shop now
+              </Button>
+            </div>
+            <div className="grid h-[400px] grid-cols-3 overflow-hidden">
+              <img
+                src={win1}
+                alt="winter-products"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src={win2}
+                alt="winter-products"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src={win1}
+                alt="winter-products"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+          </div>
+          <div className="mt-3 hidden grid-cols-[1fr_400px] lg:grid">
+            <div className="grid h-[400px] grid-cols-3 overflow-hidden">
+              <img
+                src={win3}
+                alt="winter-products"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src={win4}
+                alt="winter-products"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src={win5}
+                alt="winter-products"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <div className="relative flex flex-col items-center justify-center">
+              <span className="absolute right-10 top-1 font-circular text-xl uppercase tracking-wider text-main-100">
+                {" "}
+                vogue vortex
+              </span>
+              <h3 className="text-center font-tenorsan text-4xl uppercase tracking-widest text-main-100">
+                the weekend
+              </h3>
+              <p className="mt-3 text-center font-tenorsan capitalize text-main-100">
+                Effortless style for those relaxed days
+              </p>
+              <Button className="mt-6 inline-block h-auto rounded-md bg-main-100 px-5 py-3 font-circular font-light text-white hover:bg-main-200">
+                Shop now
+              </Button>
+            </div>
+          </div>
+
+          {/* ABOUT */}
+          <div className="mx-auto hidden flex-col items-center pt-16 lg:flex lg:w-[80%] xl:w-[65%]">
+            <Link to="/">
+              <img
+                src={logo}
+                alt={"logo"}
+                width={100}
+                height={100}
+                className="mx-auto block w-[100px]"
+              />
+            </Link>
+
+            <p className="my-5 w-[60%] text-balance text-center font-tenorsan font-medium text-neutral-500 xl:w-1/2">
+              At our core, we strive to make a luxurious lifestyle attainable
+              for a diverse community of women every day.
+            </p>
+            {/* BORDER DIVIDER */}
+            <div className="relative mx-auto my-0 mb-10 w-1/2 border-t-2 border-zinc-100">
+              <span className="absolute -top-1 inline-block h-1.5 w-1.5 rotate-45 bg-zinc-100"></span>
+              <span className="absolute -top-1 right-0 inline-block h-1.5 w-1.5 rotate-45 bg-zinc-100"></span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-5">
+              <EachElement
+                of={post}
+                render={(item: any, i: number) => (
+                  <div className="flex flex-col items-center gap-3">
+                    <img
+                      src={item?.img}
+                      alt={"illustration" + i}
+                      width={100}
+                      height={100}
+                      className="w-[60px]"
+                    />
+                    <p className="text-center font-tenorsan text-neutral-500">
+                      {item?.content}
+                    </p>
+                  </div>
+                )}
+              />
+            </div>
+          </div>
+
+          {/* PAGINATION */}
+          <div className="my-10 flex items-center justify-center gap-1 lg:hidden">
             <span className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-500 font-circular font-medium text-main-100">
               <BsChevronLeft />
             </span>

@@ -6,6 +6,7 @@ import Img5 from "@/assets/curves.svg";
 import EachElement from "@/utils/EachElement";
 import logo from "@/assets/logo-dark.svg";
 import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
 
 const post = [
   { img: Img1, content: "Fast shipping. Free on orders over $25." },
@@ -14,9 +15,9 @@ const post = [
   { img: Img4, content: "Fast shipping. Free on orders over $25." },
 ];
 
-const About = () => {
+const About = ({ className }: { className?: string }) => {
   return (
-    <section className="bg-[#F2F2F2] py-10">
+    <section className={cn("bg-[#F2F2F2] py-10", className)}>
       <div className="wrapper">
         <Link to="/">
           <img

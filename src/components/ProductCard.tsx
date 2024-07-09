@@ -3,6 +3,7 @@ import slugify from "slugify";
 import { Link } from "react-router-dom";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { BsHeart } from "react-icons/bs";
+import { SiZara } from "react-icons/si";
 
 type CardProps = {
   data: any;
@@ -14,8 +15,8 @@ const ProductCard: React.FC<CardProps> = ({ data }) => {
   return (
     <div className="w-full">
       <figure className="relative mb-2 h-[200px] w-full overflow-hidden rounded-2xl shadow">
-        <span className="absolute right-3 top-3 inline-block text-main-100 hover:fill-main-100">
-          <BsHeart size={24} />
+        <span className="absolute right-3 top-3 inline-block">
+          <BsHeart size={24} color="#DD8560" />
         </span>
         <img
           src={data?.images[0]}
@@ -29,12 +30,14 @@ const ProductCard: React.FC<CardProps> = ({ data }) => {
         </span>
       </figure>
       <h3 className="font-circular text-main-100">
-        <Link to={`/products/${slugify(data?.name)}`}>
+        <Link to={`#/products/${slugify(data?.name)}`}>
           21WN reversible angora
         </Link>
       </h3>
       <div className="flex items-center gap-2">
-        <span className="inline-block h-5 w-5 rounded-full border-2 border-main-100"></span>
+        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border-2 border-main-100">
+          <SiZara size={14} className="text-main-100" />
+        </span>
         <span className="font-circular text-main-100">{data?.brand}</span>
         <span>
           <RiVerifiedBadgeFill color="#00D566" />

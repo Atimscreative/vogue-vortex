@@ -209,4 +209,22 @@ export const productsLists = [
     sizes: ["s", "m", "l"],
     images: [Product2],
   },
+  {
+    name: "21WN reversible angora ",
+    brand: "Zara Official",
+    verified: true,
+    price: 149,
+    colors: ["", "", ""],
+    sizes: ["s", "m", "l"],
+    images: [Product5],
+  },
+  {
+    name: "21WN reversible angora ",
+    brand: "Zara Official",
+    verified: true,
+    price: 149,
+    colors: ["", "", ""],
+    sizes: ["s", "m", "l"],
+    images: [Product2],
+  },
 ];
