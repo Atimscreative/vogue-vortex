@@ -15,7 +15,6 @@ import {
   Location01Icon,
   Sun02Icon,
   Moon02Icon,
-  MultiplicationSignIcon,
 } from "hugeicons-react";
 import {
   BsFacebook,
@@ -24,6 +23,7 @@ import {
   BsTiktok,
   BsTwitterX,
 } from "react-icons/bs";
+import { TfiClose } from "react-icons/tfi";
 
 type Props = {
   showModal: boolean;
@@ -57,7 +57,7 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
   return (
     <aside
       className={cn(
-        "fixed -left-full top-0 z-50 h-full w-full bg-white p-4 duration-500",
+        "fixed -left-full top-0 z-[9999] h-full w-full bg-white p-4 duration-500",
         showModal && "left-0",
       )}
     >
@@ -65,7 +65,7 @@ const MobileNavSidebar: React.FC<Props> = ({ showModal, setShowModal }) => {
         className="inline-block cursor-pointer text-main-500"
         onClick={() => setShowModal(false)}
       >
-        <MultiplicationSignIcon size={32} />
+        <TfiClose size={24} />
       </span>
 
       <Tabs defaultValue="women" className="mt-6 w-full">

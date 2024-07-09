@@ -5,8 +5,21 @@ import MobileNav from "./MobileNav";
 import { Search } from "lucide-react";
 import { ShoppingBag } from "@/icons/icons";
 import { Heart } from "iconsax-react";
+import Cart from "@/components/Cart";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    document.addEventListener("click", handleClose);
+
+    return document.removeEventListener("click", handleClose);
+  }, []);
   return (
     <>
       <header className="fixed left-0 top-0 z-[999] hidden w-full bg-[#948775] py-6 lg:block">
@@ -43,7 +56,8 @@ const Navbar = () => {
           </div>
         </div>
       </header>
-      <MobileNav />
+      <MobileNav showCart={setOpen} />
+      <Cart showCart={open} setShowCart={setOpen} />
     </>
   );
 };

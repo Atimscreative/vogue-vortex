@@ -6,6 +6,7 @@ import NoPage from "./page/NoPage";
 import ProductPage from "./page/ProductPage";
 import ProductDetails from "./page/ProductDetails";
 import "./App.css";
+import Checkout from "./page/Checkout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<AppLayout />}>
             <Route index element={<ProductPage />} />
             <Route path="/products" element={<ProductPage />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/products/:id" element={<ProductDetails />} />
 
             <Route path="*" element={<NoPage />} />

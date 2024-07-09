@@ -152,9 +152,9 @@ export const productsLists = [
     brand: "Dior",
     verified: true,
     price: 120,
-    colors: ["", "", ""],
+
     sizes: ["s", "m", "l"],
-    images: [Product6, Product21, Product22],
+    images: [Product1, Product21, Product22],
     material:
       "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products.",
     care: {
@@ -168,9 +168,9 @@ export const productsLists = [
     brand: "Zara Official",
     verified: true,
     price: 149,
-    colors: ["", "", ""],
+
     sizes: ["s", "m", "l"],
-    images: [Product1],
+    images: [Product2],
   },
 
   {
@@ -178,7 +178,7 @@ export const productsLists = [
     brand: "Zara Official",
     verified: true,
     price: 149,
-    colors: ["", "", ""],
+
     sizes: ["s", "m", "l"],
     images: [Product3],
   },
@@ -187,7 +187,7 @@ export const productsLists = [
     brand: "Zara Official",
     verified: true,
     price: 149,
-    colors: ["", "", ""],
+
     sizes: ["s", "m", "l"],
     images: [Product4],
   },
@@ -196,7 +196,7 @@ export const productsLists = [
     brand: "Zara Official",
     verified: true,
     price: 149,
-    colors: ["", "", ""],
+
     sizes: ["s", "m", "l"],
     images: [Product5],
   },
@@ -205,7 +205,57 @@ export const productsLists = [
     brand: "Zara Official",
     verified: true,
     price: 149,
-    colors: ["", "", ""],
+
+    sizes: ["s", "m", "l"],
+    images: [Product6],
+  },
+  {
+    name: "21WN reversible angora ",
+    brand: "Zara Official",
+    verified: true,
+    price: 149,
+
+    sizes: ["s", "m", "l"],
+    images: [Product4],
+  },
+  {
+    name: "21WN reversible angora ",
+    brand: "Zara Official",
+    verified: true,
+    price: 149,
+
+    sizes: ["s", "m", "l"],
+    images: [Product3],
+  },
+];
+
+type CartProps = {
+  name: string;
+  brand: string;
+  verified: boolean;
+  price: number;
+  colors: string[];
+  sizes: string[];
+  images: string[];
+}[];
+
+export const cartItems: CartProps = [
+  {
+    name: "21WN reversible angora ",
+    brand: "Zara Official",
+    verified: true,
+    price: 149,
+
+    sizes: ["s", "m", "l"],
+    images: [Product1],
+    colors: ["#ffffff", "#0027B3", "#00B300", "#B39600"],
+  },
+  {
+    name: "21WN reversible angora ",
+    brand: "Zara Official",
+    verified: true,
+    price: 149,
+    colors: ["#483E25", "#B30015", "#B39600", "#0027B3"],
     sizes: ["s", "m", "l"],
     images: [Product2],
   },
@@ -214,17 +264,8 @@ export const productsLists = [
     brand: "Zara Official",
     verified: true,
     price: 149,
-    colors: ["", "", ""],
+    colors: ["#131217", "#00B300", "#0093B3", "#0027B3"],
     sizes: ["s", "m", "l"],
-    images: [Product5],
-  },
-  {
-    name: "21WN reversible angora ",
-    brand: "Zara Official",
-    verified: true,
-    price: 149,
-    colors: ["", "", ""],
-    sizes: ["s", "m", "l"],
-    images: [Product2],
+    images: [Product4],
   },
 ];
