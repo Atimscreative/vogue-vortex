@@ -65,7 +65,7 @@ const Checkout = () => {
   return (
     <div>
       <div className="mt-[80px] lg:mt-[87px]" />
-      <div className="mb-8 flex items-center justify-evenly gap-8 border-b py-4">
+      <div className="mb-8 hidden items-center justify-evenly gap-8 border-b py-4 lg:flex">
         <EachElement
           of={steps}
           render={(item: string, index: number) => (
