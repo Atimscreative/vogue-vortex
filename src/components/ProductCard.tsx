@@ -16,10 +16,10 @@ const ProductCard: React.FC<CardProps> = ({ data }) => {
   return (
     <div className="w-full">
       <figure className="relative mb-2 h-[200px] w-full overflow-hidden rounded-2xl shadow">
-        <span className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white">
+        <span className="absolute right-3 top-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white">
           <BsHeart size={20} color="#DD8560" />
         </span>
-        <span className="absolute right-3 top-14 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white">
+        <span className="absolute right-3 top-14 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white">
           <ShoppingBag size={20} className="text-[#DD8560]" />
         </span>
         <img

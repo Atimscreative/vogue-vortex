@@ -107,4 +107,24 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
   }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 5px;
+    position: fixed;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #58424200;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #523f38;
+    /* border-radius: 10px; */
+    /* border: 3px solid #f1f1f1; */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
