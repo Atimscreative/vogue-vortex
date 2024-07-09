@@ -148,6 +148,7 @@ export const fashion: any = {
 
 export const productsLists = [
   {
+    id: "VO55000",
     name: "Oak leather suit ",
     brand: "Dior",
     verified: true,
@@ -164,6 +165,7 @@ export const productsLists = [
     },
   },
   {
+    id: "VO55001",
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -174,6 +176,8 @@ export const productsLists = [
   },
 
   {
+    id: "VO55002",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -183,6 +187,8 @@ export const productsLists = [
     images: [Product3],
   },
   {
+    id: "VO55003",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -192,6 +198,8 @@ export const productsLists = [
     images: [Product4],
   },
   {
+    id: "VO55004",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -201,6 +209,8 @@ export const productsLists = [
     images: [Product5],
   },
   {
+    id: "VO55005",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -210,6 +220,8 @@ export const productsLists = [
     images: [Product6],
   },
   {
+    id: "VO55006",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -219,6 +231,8 @@ export const productsLists = [
     images: [Product4],
   },
   {
+    id: "VO55007",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -230,6 +244,7 @@ export const productsLists = [
 ];
 
 type CartProps = {
+  id: string;
   name: string;
   brand: string;
   verified: boolean;
@@ -241,6 +256,8 @@ type CartProps = {
 
 export const cartItems: CartProps = [
   {
+    id: "VO55008",
+
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -251,6 +268,7 @@ export const cartItems: CartProps = [
     colors: ["#ffffff", "#0027B3", "#00B300", "#B39600"],
   },
   {
+    id: "VO55009",
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,
@@ -260,6 +278,7 @@ export const cartItems: CartProps = [
     images: [Product2],
   },
   {
+    id: "VO55010",
     name: "21WN reversible angora ",
     brand: "Zara Official",
     verified: true,

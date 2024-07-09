@@ -5,7 +5,7 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { BsHeart } from "react-icons/bs";
 import { SiZara } from "react-icons/si";
 import { ShoppingBag } from "@/icons/icons";
-
+import useCartStore from "@/store/cartStore";
 type CardProps = {
   data: any;
 };
@@ -13,13 +13,20 @@ type CardProps = {
 // const slug = (value: string) => slugify(value, { lower: true });
 
 const ProductCard: React.FC<CardProps> = ({ data }) => {
+  const { addCartItem } = useCartStore();
+
   return (
     <div className="w-full">
       <figure className="relative mb-2 h-[200px] w-full overflow-hidden rounded-2xl shadow">
         <span className="absolute right-3 top-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white bg-opacity-60 shadow-md">
           <BsHeart size={20} color="#DD8560" />
         </span>
-        <span className="absolute right-3 top-14 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white bg-opacity-60 shadow-md">
+        <span
+          onClick={() => {
+            addCartItem(data);
+          }}
+          className="absolute right-3 top-14 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white"
+        >
           <ShoppingBag size={20} className="text-[#DD8560]" />
         </span>
         <img
