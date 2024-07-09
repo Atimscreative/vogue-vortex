@@ -23,7 +23,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ForYou from "@/components/ForYou";
 import win1 from "@/assets/win-1.png";
 import win2 from "@/assets/win-2.png";
@@ -35,6 +35,8 @@ import Img3 from "@/assets/Sharing-Ideas--Streamline-Milano.svg";
 import Img2 from "@/assets/Design-Thinking-1--Streamline-Milano.svg";
 import Img4 from "@/assets/International-Shipping--Streamline-Milano.svg";
 import logo from "@/assets/logo-dark.svg";
+import { VscChevronDown } from "react-icons/vsc";
+import { ShoppingBag } from "@/icons/icons";
 
 const post = [
   { img: Img1, content: "Fast shipping. Free on orders over $25." },
@@ -69,8 +71,8 @@ const ProductPage = () => {
               <DropdownMenu key={index}>
                 <DropdownMenuTrigger className="inline-flex items-center gap-2 font-circular hover:text-main-100 focus-visible:border-0 focus-visible:outline-0">
                   {fas?.category}
-                  <span>
-                    <ChevronDown />
+                  <span className="text-[#333] text-opacity-70">
+                    <VscChevronDown />
                   </span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -194,6 +196,9 @@ const ProductPage = () => {
                           />
                           <span className="inline- absolute bottom-2 left-2 rounded-xl bg-white px-2.5 py-1 font-circular text-lg text-main-100 shadow">
                             ${data?.price}
+                          </span>
+                          <span className="absolute right-3 top-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white bg-opacity-60 shadow-md">
+                            <ShoppingBag size={20} className="text-[#DD8560]" />
                           </span>
                         </figure>
 
@@ -389,7 +394,7 @@ const ProductPage = () => {
 
           {/* PAGINATION */}
           <div className="my-10 flex items-center justify-center gap-1 lg:hidden">
-            <span className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-500 font-circular font-medium text-main-100">
+            <span className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-100 font-circular font-medium text-main-100">
               <BsChevronLeft />
             </span>
             {Array.from({ length: 8 }, (_: any, index: number) => {
@@ -400,7 +405,7 @@ const ProductPage = () => {
               if (index === 5) {
                 return (
                   <span
-                    className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-500 font-circular font-medium text-main-100"
+                    className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-100 font-circular font-medium text-main-100"
                     key={index}
                   >
                     <BsThreeDots />
@@ -411,7 +416,7 @@ const ProductPage = () => {
               return (
                 <span
                   className={cn(
-                    "inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-500 font-circular font-medium text-main-100",
+                    "inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-100 font-circular font-medium text-main-100",
                     index + 1 === 2 && "border-main-100 bg-main-100 text-white",
                   )}
                   key={index}
@@ -420,7 +425,7 @@ const ProductPage = () => {
                 </span>
               );
             })}
-            <span className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-500 font-circular font-medium text-main-100">
+            <span className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-main-100 font-circular font-medium text-main-100">
               <BsChevronRight />
             </span>
           </div>
