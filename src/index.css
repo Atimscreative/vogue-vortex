@@ -73,6 +73,11 @@
   * {
     @apply border-border;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply overflow-x-clip bg-background text-foreground;
   }
