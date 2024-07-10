@@ -25,7 +25,7 @@ const ProductCard: React.FC<CardProps> = ({ data }) => {
           onClick={() => {
             addCartItem(data);
           }}
-          className="absolute right-3 top-14 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white"
+          className="absolute right-3 top-14 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white bg-opacity-60 shadow-md"
         >
           <ShoppingBag size={20} className="text-[#DD8560]" />
         </span>

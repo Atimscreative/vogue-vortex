@@ -22,7 +22,7 @@ interface CartItem {
 interface CartState {
   cartItems: CartItem[];
   addCartItem: (item: CartItem) => void;
-  deleteCartItem: (itemId: string) => void;
+  deleteCartItem: (item: CartItem) => void;
   increaseCartItemQuantity: (itemId: string) => void;
   decreaseCartItemQuantity: (itemId: string) => void;
   setCartItems: (items: CartItem[]) => void;
@@ -59,10 +59,24 @@ const useCartStore = create<CartState>((set) => ({
       return { cartItems: updatedCartItems };
     }),
 
-  deleteCartItem: (itemId) =>
-    set((state) => ({
-      cartItems: state.cartItems.filter((cartItem) => cartItem.id !== itemId),
-    })),
+  // Deletecart Item
+  deleteCartItem: (item) =>
+    set((state) => {
+      const updatedCartItems = state.cartItems.filter(
+        (cartItem) => cartItem?.id !== item?.id,
+      );
+
+      // Update the state with the new cart items
+      const newState = { cartItems: updatedCartItems };
+
+      // Persist the updated cart items to localStorage
+      localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+
+      // Show a toast message
+      toast("Item removed from cart");
+
+      return newState;
+    }),
 
   increaseCartItemQuantity: (itemId) =>
     set((state) => ({

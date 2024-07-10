@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MobileNavSidebar from "./MobileNavSidebar";
 import { cn } from "@/lib/utils";
+import useCartStore from "@/store/cartStore";
 
 const MobileNav = ({ showCart }: any) => {
   const [showModal, setShowModal] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const { cartItems } = useCartStore();
 
   useEffect(() => {
     const pos = () => {
@@ -45,9 +47,12 @@ const MobileNav = ({ showCart }: any) => {
             </span>
             <span
               onClick={() => showCart(true)}
-              className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white"
+              className="relative inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white"
             >
               <ShoppingBag className="text-main-100" />
+              <span className="absolute -right-0 top-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-main-300 font-tenorsan text-sm text-white">
+                {cartItems?.length}
+              </span>
             </span>
           </div>
         </div>
