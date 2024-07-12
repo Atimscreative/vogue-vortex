@@ -16,7 +16,7 @@ type Props = {
 
 const Cart: React.FC<Props> = ({ showCart, setShowCart }) => {
   const navigate = useNavigate();
-  const { cartItems } = useCartStore();
+  const { cartItems, deleteCartItem } = useCartStore();
   const handleClose = () => {
     setShowCart(false);
   };

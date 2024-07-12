@@ -51,7 +51,7 @@ const MobileNav = ({ showCart }: any) => {
             >
               <ShoppingBag className="text-main-100" />
               <span className="absolute -right-0 top-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-main-300 font-tenorsan text-sm text-white">
-                {cartItems?.length}
+                {cartItems?.length || 0}
               </span>
             </span>
           </div>

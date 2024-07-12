@@ -1,5 +1,5 @@
 import { toast } from "sonner";
-import create from "zustand";
+import { create } from "zustand";
 
 // Define the type for a cart item
 interface CartItem {
@@ -40,6 +40,8 @@ const useCartStore = create<CartState>((set) => ({
         (cartItem) => cartItem.id === item.id,
       );
 
+      console.log("heloo");
+
       let updatedCartItems;
       if (existingItem) {
         updatedCartItems = state.cartItems.map((cartItem) =>
@@ -55,8 +57,9 @@ const useCartStore = create<CartState>((set) => ({
 
       // Update local storage
       localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+      const newCartItem = { cartItems: updatedCartItems };
 
-      return { cartItems: updatedCartItems };
+      return newCartItem;
     }),
 
   // Deletecart Item
@@ -69,8 +72,8 @@ const useCartStore = create<CartState>((set) => ({
       // Update the state with the new cart items
       const newState = { cartItems: updatedCartItems };
 
-      // Persist the updated cart items to localStorage
-      localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+      // updated cart items to localStorage
+      localStorage.setItem("cart", JSON.stringify(newState));
 
       // Show a toast message
       toast("Item removed from cart");
