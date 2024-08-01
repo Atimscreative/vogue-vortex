@@ -8,11 +8,14 @@ import { Heart } from "iconsax-react";
 import Cart from "@/components/Cart";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
+import useCartStore from "@/store/cartStore";
 
 const Navbar = () => {
   const location = useLocation();
   const pathname = location.pathname;
   const [open, setOpen] = useState(false);
+  const { cartItems } = useCartStore();
 
   const isCart = pathname.includes("/checkout");
 
@@ -29,6 +32,19 @@ const Navbar = () => {
   console.log(pathname);
   return (
     <>
+      <Toaster
+        toastOptions={{
+          // unstyled: true,
+          classNames: {
+            toast: "bg-main-100",
+            title: "text-white text-base font-tenorsan",
+            description: "text-main-100",
+            actionButton: "bg-zinc-400",
+            cancelButton: "bg-orange-400",
+            closeButton: "bg-lime-400",
+          },
+        }}
+      />
       <header
         className={cn(
           "fixed left-0 top-0 z-[999] hidden w-full bg-[#948775] py-6 lg:block",
@@ -74,10 +90,16 @@ const Navbar = () => {
             <span className={cn("cursor-pointer", isCart && "lg:hidden")}>
               <Heart size={24} className={cn("text-white")} />
             </span>
-            <Link to="/checkout?tab=information" className="cursor-pointer">
+            <Link
+              to="/checkout?tab=information"
+              className="relative cursor-pointer"
+            >
               <ShoppingBag
                 className={cn("text-white", isCart && "lg:text-main-100")}
               />
+              <span className="absolute -right-2 -top-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-main-300 font-tenorsan text-sm text-white">
+                {cartItems?.length}
+              </span>
             </Link>
           </div>
         </div>

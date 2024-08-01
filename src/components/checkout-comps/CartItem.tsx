@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
+import useCartStore from "@/store/cartStore";
 import EachElement from "@/utils/EachElement";
 import { Add } from "iconsax-react";
 import { Minus } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
+import { TfiTrash } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 
 type CartItemProp = {
@@ -12,6 +14,7 @@ type CartItemProp = {
 
 const CartItem: React.FC<CartItemProp> = ({ data }) => {
   const [quantity, setQuantity] = useState(1);
+  const { deleteCartItem } = useCartStore();
   const Increment = () => {
     setQuantity((prev: number) => prev + 1);
   };
@@ -19,6 +22,13 @@ const CartItem: React.FC<CartItemProp> = ({ data }) => {
   const Decrement = () => {
     setQuantity((prev: number) => (prev > 1 ? prev - 1 : prev));
   };
+
+  const handleCartItemRemove = () => {
+    deleteCartItem(data);
+    console.log("click");
+  };
+
+  useEffect(() => {});
 
   return (
     <div className="grid w-full grid-cols-[150px_1fr] gap-2 lg:grid-cols-[200px_1fr] lg:gap-6">
@@ -32,6 +42,12 @@ const CartItem: React.FC<CartItemProp> = ({ data }) => {
         />
         <span className="absolute bottom-2 left-2 inline rounded-xl bg-white px-2.5 py-1 font-circular text-lg text-main-100 shadow lg:hidden">
           ${data?.price}
+        </span>
+        <span
+          onClick={handleCartItemRemove}
+          className="absolute right-3 top-3 inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white"
+        >
+          <TfiTrash size={20} className="text-[#DD8560]" />
         </span>
       </figure>
 
@@ -122,7 +138,7 @@ const CartItem: React.FC<CartItemProp> = ({ data }) => {
               >
                 <Minus />
               </div>
-              <span className="inline-block font-tenorsan tabular-nums nums">
+              <span className="nums inline-block font-tenorsan tabular-nums">
                 {quantity}
               </span>
               <div
