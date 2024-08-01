@@ -1,3 +1,17 @@
+import { useEffect, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { ShoppingBag } from "@/icons/icons";
+import { useLocation, useNavigate } from "react-router-dom";
+import MasterCard from "@/assets/mastercard.svg";
+import Visa from "@/assets/visa.svg";
+import Product1 from "@/assets/product-1.jpg";
+import Product2 from "@/assets/product-2.jpg";
+import Product4 from "@/assets/product-4.jpg";
+import SuccessPaymentModal from "@/components/checkout-comps/SuccessPaymentModal";
+import EachElement from "@/utils/EachElement";
+import { cartItems } from "@/utils/data";
+import CartItem from "@/components/checkout-comps/CartItem";
+import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -13,21 +27,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useEffect, useState } from "react";
-import { Input } from "@/components/ui/input";
-import { ShoppingBag } from "@/icons/icons";
-import { useLocation, useNavigate } from "react-router-dom";
-import MasterCard from "@/assets/mastercard.svg";
-import Visa from "@/assets/visa.svg";
 
-import Product1 from "@/assets/product-1.jpg";
-import Product2 from "@/assets/product-2.jpg";
-import Product4 from "@/assets/product-4.jpg";
-import SuccessPaymentModal from "@/components/checkout-comps/SuccessPaymentModal";
-import EachElement from "@/utils/EachElement";
-import { cartItems } from "@/utils/data";
-import CartItem from "@/components/checkout-comps/CartItem";
-import { Textarea } from "@/components/ui/textarea";
 
 const steps = ["information", "payment", "summary"];
 

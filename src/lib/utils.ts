@@ -1,10 +1,12 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
 
+// TAILWIND MERGE
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
+// CHUNKARRAY
 export function chunkArray<T>(array: T[], size: number) {
   let result = [];
   for (let i = 0; i < array?.length; i += size) {
@@ -14,6 +16,8 @@ export function chunkArray<T>(array: T[], size: number) {
   return result;
 }
 
+
+// FORMAT CREDITCARD NUMBER
 export default function formatCreditCardNumber(value: string) {
   const number = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
   const parts = [];

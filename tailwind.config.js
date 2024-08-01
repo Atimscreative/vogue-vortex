@@ -1,5 +1,3 @@
-const { url } = require("inspector");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -32,7 +30,6 @@ module.exports = {
           400: "#1A1A1A",
           500: "#333333",
         },
-
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -86,10 +83,9 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-
       backgroundImage: {
-        heroDark: url("./src/assets/hero-dark.png"),
-        heroLight: url("./src/assets/hero-light.png"),
+        heroDark: 'url("./src/assets/hero-dark.png")',
+        heroLight: 'url("./src/assets/hero-light.png")',
       },
     },
   },
